@@ -41,8 +41,7 @@ npx wardrail scan --history
 | Project | What it demonstrates |
 |---|---|
 | [Wardrail](https://github.com/3196973848/wardrail) | TypeScript CLI engineering, static analysis, AI Agent security, SARIF, CI/CD, and open-source maintenance |
-| [DeepCrack U-Net Segmentation](https://github.com/3196973848/deepcrack-unet-segmentation) | Semantic segmentation and computer-vision model development with Python |
-| [Bottle Defect Deep Classifier](https://github.com/3196973848/bottle-defect-deep-classifier) | Applied deep learning for industrial visual quality inspection |
+| [DeepCrack U-Net Segmentation](https://github.com/3196973848/deepcrack-unet-segmentation) | End-to-end PyTorch segmentation pipeline with a 0.6502 independent-test Dice score |
 
 ## Current focus
 
