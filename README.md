@@ -1,66 +1,75 @@
-<div align="center">
+# lbcdsg
 
-# Hi, I'm lbcdsg 👋
+### Applied AI systems for reliable decisions and safer software
 
-### I build practical security and AI tools that help people ship with confidence.
+I build end-to-end systems across **computer vision**, **AI-assisted software
+security**, and **developer tooling**. My work emphasizes reproducible
+experiments, explicit evaluation protocols, and honest limitations—not only a
+working demo.
 
-**AI Agent Security · Static Analysis · Developer Tools · Computer Vision**
+I am preparing for graduate study in Hong Kong and am especially interested in
+robust visual learning, trustworthy AI systems, and evaluation under real-world
+constraints.
 
-[![Wardrail](https://img.shields.io/badge/Featured-Wardrail-00bcd4?style=for-the-badge)](https://github.com/3196973848/wardrail)
-[![npm](https://img.shields.io/npm/v/wardrail?style=for-the-badge&label=npm)](https://www.npmjs.com/package/wardrail)
+## Research interests
 
-</div>
+- **Computer vision:** detection and segmentation for industrial and
+  infrastructure inspection, especially under class imbalance and domain shift.
+- **Trustworthy AI:** leakage-aware evaluation, interpretable failure analysis,
+  and clear boundaries between research prototypes and production claims.
+- **AI systems:** combining learned components with deterministic, testable
+  software and safety controls.
 
-## What I'm building
+## Evidence at a glance
 
-### [Wardrail](https://github.com/3196973848/wardrail)
+| Project | Research or engineering question | Method | Verifiable evidence |
+|---|---|---|---|
+| [Bottle Defect Detection](https://github.com/3196973848/bottle-defect-detection) | Can a two-stage system improve fine-grained detection of five visually similar pharmaceutical-bottle defects? | Class-agnostic YOLO26s proposals + dual-view ConvNeXt-Tiny classification and class-specific box refinement | Clean held-out test: **2,159 images / 2,222 boxes**, **98.07% Micro F1**, **95.16% Macro F1**, **97.17% exact-image accuracy**; frozen validation thresholds and documented leakage controls |
+| [DeepCrack U-Net Segmentation](https://github.com/3196973848/deepcrack-unet-segmentation) | How well does a compact U-Net recover sparse road-crack pixels from limited data? | Aspect-ratio-preserving preprocessing, paired augmentation, U-Net, Dice + cross-entropy loss | Fixed **240 / 60 / 237** train-validation-test split; best validation Dice **0.8711**; independent-test Dice **0.6502**, IoU **0.4817** |
+| [Wardrail](https://github.com/3196973848/wardrail) | How can AI-assisted developers catch security mistakes before code runs or reaches GitHub? | Local TypeScript static analysis, bounded Git-history scanning, short-range data-flow checks, SARIF and pre-commit integration | **17 explainable rules**; offline-by-default analysis; terminal, JSON and SARIF output; tested on Node.js 20, 22 and 24 |
+| [Daybreak](https://github.com/3196973848/daybreak) | How can open-ended goals become feasible daily plans without making scheduling opaque? | LLM-based goal decomposition + deterministic duration-aware scheduler + task-scoped tutor | Local-first FastAPI/React/SQLite application with backend tests, frontend tests, CI builds and calendar export |
 
-> Ship your first app — not your API key.
+> Metrics above are project results, not peer-reviewed publication claims. Each
+> repository documents its data boundary, evaluation protocol, and known
+> limitations.
 
-Wardrail is an open-source, local-first security scanner for vibe-coded apps,
-MCP servers, Agent Skills, and AI instruction files. It catches leaked API
-keys, secrets left in Git history, unsafe agent instructions, and dangerous
-commands before they run or reach GitHub.
+## Selected work
 
-<a href="https://github.com/3196973848/wardrail">
-  <img src="https://raw.githubusercontent.com/3196973848/wardrail/main/docs/assets/wardrail-social-preview-v2.jpg" alt="Wardrail protects vibe coding beginners from API key leaks" width="800">
-</a>
+### Industrial visual inspection
 
-```bash
-npx wardrail scan
-npx wardrail scan --history
-```
+The [bottle-defect project](https://github.com/3196973848/bottle-defect-detection)
+is my most complete computer-vision study. It includes a model card, a frozen
+post-processing configuration, per-class error analysis, downloadable weights
+with SHA-256 checksums, and explicit warnings about normal-product false
+positives and cross-line generalization.
 
-- Runs locally and offline by default
-- Never uploads source code
-- Explains every finding and remediation
-- Supports terminal, JSON, SARIF, pre-commit hooks, and GitHub Code Scanning
+### Segmentation from a limited dataset
 
-## Selected projects
+[DeepCrack U-Net](https://github.com/3196973848/deepcrack-unet-segmentation)
+covers the full experimental path from paired data validation to held-out test
+evaluation and single-image inference. The gap between validation and test Dice
+is reported directly because understanding that gap is part of the result.
 
-| Project | What it demonstrates |
-|---|---|
-| [Wardrail](https://github.com/3196973848/wardrail) | TypeScript CLI engineering, static analysis, AI Agent security, SARIF, CI/CD, and open-source maintenance |
-| [DeepCrack U-Net Segmentation](https://github.com/3196973848/deepcrack-unet-segmentation) | End-to-end PyTorch segmentation pipeline with a 0.6502 independent-test Dice score |
+### Safety for AI-assisted development
 
-## Current focus
+[Wardrail](https://github.com/3196973848/wardrail) explores trustworthy tooling
+at the software boundary. It detects leaked credentials, unsafe agent
+instructions, dangerous commands, and simple secret-to-network flows without
+uploading source code or executing the scanned project.
 
-- Making AI-assisted and vibe-coded software safer for beginners
-- Static analysis for MCP, Agent Skills, and instruction files
-- Secret detection across source code, configuration, and Git history
-- Practical computer vision for defect detection and segmentation
+## How I work
 
-## Tech
+- Separate training, validation, and test decisions; freeze thresholds before
+  final evaluation.
+- Check for overlap and leakage, then document exclusions explicitly.
+- Report per-class results and failure modes instead of relying on one headline
+  metric.
+- Pair experiments with reproducible commands, model cards, tests, CI, and
+  release artifacts.
+- State where evidence stops: a research result is not automatically a
+  production guarantee.
 
-`TypeScript` · `Node.js` · `Python` · `Git` · `GitHub Actions` ·
-`Static Analysis` · `AI Security` · `Computer Vision`
+## Tools
 
-## 关于我
-
-我专注于 AI Agent 安全、静态分析、开发者工具和计算机视觉。目前主要维护
-[Wardrail](https://github.com/3196973848/wardrail)，帮助 vibecoding
-新手在代码运行或提交到 GitHub 之前发现 API Key 泄露和危险 Agent 配置。
-
-If you find Wardrail useful, a
-[GitHub star](https://github.com/3196973848/wardrail) helps more developers
-discover it.
+`Python` · `PyTorch` · `Ultralytics` · `TypeScript` · `Node.js` · `FastAPI` ·
+`React` · `SQLite` · `GitHub Actions` · `SARIF`
